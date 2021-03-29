@@ -1,0 +1,12 @@
+**/__pycache__/
+**/.idea/
+**/.DS_Store
+**/.credentials
+
+**/*.sqlite3
+**/Pipfile
+**/Pipfile.lock
+**/engineerx/media
+**/engineerx/integration/cypress/videos/
+**/engineerx/integration/cypress/screenshots/
+**/engineerx/integration/node_modules/
