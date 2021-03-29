@@ -18,10 +18,11 @@ services:
     entrypoint: ["/bin/sh","-c"]
     command:
     - |
-       ./wait-for-it.sh db:5432 -- ./start-local.sh 
+       ./wait-for-it.sh db:5432 -- ./start.sh 
     environment:
       - POSTGRES_PASSWORD
-      - FRONTEND_URL=http://127.0.0.1:3000
+      - SECRET_KEY
+      - ALLOWED_HOST=127.0.0.1
     networks:
       - engineerx-backend
     volumes: 
