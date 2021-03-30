@@ -160,3 +160,8 @@ WAGTAIL_SITE_NAME = "engineerx"
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://example.com'
+
+# Images Configurations
+DOWNLOADS_ROOT = os.path.join(MEDIA_ROOT, 'downloads')
+IMAGE_DOWNLOADS_DIR = os.path.join(DOWNLOADS_ROOT, 'images')
+AVATAR_DOWNLOADS_DIR = os.path.join(DOWNLOADS_ROOT, 'avatars')
