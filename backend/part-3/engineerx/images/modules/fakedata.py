@@ -9,6 +9,14 @@ from wagtail.images import get_image_model
 logger = logging.getLogger("fake users:")
 Image = get_image_model()
 
+def create_dir_if_not_exists(directory):
+    if not os.path.exists(directory):
+        os.mkdir(directory)
+
+create_dir_if_not_exists(settings.MEDIA_ROOT)
+create_dir_if_not_exists(settings.DOWNLOADS_ROOT)
+create_dir_if_not_exists(settings.IMAGE_DOWNLOADS_DIR)
+create_dir_if_not_exists(settings.AVATAR_DOWNLOADS_DIR)
 
 def create_wagtail_image(filename):
     filepath = os.path.join(settings.IMAGE_DOWNLOADS_DIR, filename)
