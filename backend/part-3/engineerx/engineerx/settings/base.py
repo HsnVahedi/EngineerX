@@ -152,6 +152,11 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+# Images Configurations
+DOWNLOADS_ROOT = os.path.join(MEDIA_ROOT, 'downloads')
+IMAGE_DOWNLOADS_DIR = os.path.join(DOWNLOADS_ROOT, 'images')
+AVATAR_DOWNLOADS_DIR = os.path.join(DOWNLOADS_ROOT, 'avatars')
+
 
 # Wagtail settings
 
