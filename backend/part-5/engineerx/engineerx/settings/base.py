@@ -26,6 +26,7 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 INSTALLED_APPS = [
     'home',
     'search',
+    'authentication',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
@@ -167,3 +168,4 @@ WAGTAIL_SITE_NAME = "engineerx"
 BASE_URL = 'http://example.com'
 
 WAGTAILIMAGES_FEATURE_DETECTION_ENABLED = True
+AUTH_USER_MODEL = "authentication.User"
