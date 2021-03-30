@@ -1,0 +1,48 @@
+version: "3"
+services:
+  ingress:
+    image: engineerx/backend-ingress
+    ports: 
+      - "8000:80"
+    networks:
+      - engineerx-backend
+    volumes: 
+      - static:/home/app/web/static
+      - media:/home/app/web/media
+    depends_on:
+      - backend
+  backend:
+    image: engineerx/backend
+    ports:
+      - "8001:8000"
+    entrypoint: ["/bin/sh","-c"]
+    command:
+    - |
+       ./wait-for-it.sh db:5432 -- ./start.sh 
+    environment:
+      - POSTGRES_PASSWORD
+      - SECRET_KEY
+      - ALLOWED_HOST=127.0.0.1
+    networks:
+      - engineerx-backend
+    volumes: 
+      - static:/app/static
+      - media:/app/media
+    depends_on:
+      - db 
+  db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD
+    networks:
+      - engineerx-backend 
+networks:
+  engineerx-backend:
+    driver: bridge
+volumes:
+    static:
+      driver: local
+    media:
+      driver: local
